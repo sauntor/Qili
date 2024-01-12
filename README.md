@@ -116,7 +116,7 @@ Qili 是一款免费且开源的B站直播弹幕语音播报软件，主要适�
     # 编译
     cmake --build . --clean-first --verbose --target all
     # 打包，另需在 (A) 处的命令上增加参数: -DUSE_CPACK=ON
-    cpack --config CPackConfig.cmake -G RPM -V
+    cpack --config CPackConfig.cmake -G DEB -V
     ```
 
 ### 赞助

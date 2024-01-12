@@ -119,7 +119,7 @@ So, you may need to install some extra components provided by your Linux vendor.
     # Compile
     cmake --build . --clean-first --verbose --target all
     # Packaging，you should add -DUSE_CPACK=ON to the arguments on [1], or re-execute [1] with this param
-    cpack --config CPackConfig.cmake -G RPM -V
+    cpack --config CPackConfig.cmake -G DEB -V
     ```
 
 ### Sponsor
