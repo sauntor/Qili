@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Installer>
+    <Name>Qili</Name>
+    <Version>1.0.0</Version>
+    <Title>Qili</Title>
+    <Publisher>Sauntor OSS</Publisher>
+    <StartMenuDir>Qili</StartMenuDir>
+    <TargetDir>@ApplicationsDir@/QiliApp</TargetDir>
+    <Logo>../data/share/pixmaps/qili.png</Logo>
+    <InstallerWindowIcon>../data/share/pixmaps/qili.png</InstallerWindowIcon>
+    <WizardDefaultWidth>560</WizardDefaultWidth>
+    <WizardDefaultHeight>390</WizardDefaultHeight>
+    <ControlScript>controller.qs</ControlScript>
+    <Translations>
+        <Translation>ifw_en</Translation>
+        <Translation>ifw_zh_CN</Translation>
+        <Translation>ifw_zh_TW</Translation>
+
+        <Translation>qt_en</Translation>
+        <Translation>qt_zh_CN</Translation>
+        <Translation>qt_zh_TW</Translation>
+
+        <Translation>zh_CN.qm</Translation>
+    </Translations>
+
+</Installer>

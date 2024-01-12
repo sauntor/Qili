@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/save.svg</file>
+        <file>images/bili-logo.svg</file>
+        <file>images/bili-user.svg</file>
+        <file>images/clear_on.svg</file>
+        <file>images/clear.svg</file>
+        <file>images/close_on.svg</file>
+        <file>images/close.svg</file>
+        <file>images/help.svg</file>
+        <file>images/qili.png</file>
+        <file>themes/light.css</file>
+    </qresource>
+</RCC>

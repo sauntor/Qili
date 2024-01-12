@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>QiliLauncher</class>
+ <widget class="QDialog" name="QiliLauncher">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>467</width>
+    <height>303</height>
+   </rect>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../Widgets/QiliWidgets.qrc">
+    <normaloff>:/images/qili.png</normaloff>:/images/qili.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QLabel" name="biliLogo">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>200</y>
+     <width>138</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../Widgets/QiliWidgets.qrc">:/images/bili-logo.svg</pixmap>
+   </property>
+  </widget>
+  <widget class="QWidget" name="helpWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>200</y>
+     <width>451</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="helpLayout">
+    <item>
+     <spacer name="horizontalSpacer_3">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QLabel" name="helpIcon">
+      <property name="toolTip">
+       <string>You can find it on the broadcasting page</string>
+      </property>
+      <property name="text">
+       <string notr="true"/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="../Widgets/QiliWidgets.qrc">:/images/help.svg</pixmap>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="helpText">
+      <property name="toolTip">
+       <string>If you start as anonymous, visitor's name in the room will not be shadowed</string>
+      </property>
+      <property name="text">
+       <string>You can start withou scanning, just as anonymous</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="horizontalSpacer_4">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="bottomWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>270</y>
+     <width>451</width>
+     <height>38</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="bottom">
+    <item>
+     <spacer name="rememberLeftSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QWidget" name="anonymousWrapper" native="true">
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QRadioButton" name="anonymous">
+         <property name="autoExclusive">
+          <bool>false</bool>
+         </property>
+         <property name="qili-btn" stdset="0">
+          <string notr="true">radio</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="anonymousLabel">
+         <property name="toolTip">
+          <string>If you start as anonymous, visitor's name in the room will not be shadowed</string>
+         </property>
+         <property name="text">
+          <string>As Anonymous</string>
+         </property>
+         <property name="buddy">
+          <cstring>anonymous</cstring>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="rememberWrapper" native="true">
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QRadioButton" name="rememberButton">
+         <property name="autoExclusive">
+          <bool>false</bool>
+         </property>
+         <property name="qili-btn" stdset="0">
+          <string notr="true">radio</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="rememberLabel">
+         <property name="text">
+          <string>Remember Me</string>
+         </property>
+         <property name="buddy">
+          <cstring>rememberButton</cstring>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <spacer name="rememberRightSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="startWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>220</y>
+     <width>451</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="startLayout">
+    <item>
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>118</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QPushButton" name="startButton">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>115</width>
+        <height>32</height>
+       </size>
+      </property>
+      <property name="baseSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Start</string>
+      </property>
+      <property name="qili-btn" stdset="0">
+       <string notr="true">primary</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="horizontalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>128</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QiliTitleBar" name="qiliTitleBar" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>465</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="text" stdset="0">
+    <string>Qili</string>
+   </property>
+   <property name="qili-widget" stdset="0">
+    <string notr="true">titlebar</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>11</x>
+     <y>41</y>
+     <width>451</width>
+     <height>193</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="qrcodeLayout">
+      <item>
+       <spacer name="horizontalSpacer_7">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="qrcode">
+        <property name="minimumSize">
+         <size>
+          <width>150</width>
+          <height>150</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>Click to refresh</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="../Widgets/QiliWidgets.qrc">
+          <normaloff>:/images/qili.png</normaloff>:/images/qili.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>151</width>
+          <height>150</height>
+         </size>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_8">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="roomLayout">
+      <item>
+       <spacer name="horizontalSpacer_5">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QiliTextField" name="roomField" native="true">
+        <property name="minimumSize">
+         <size>
+          <width>280</width>
+          <height>31</height>
+         </size>
+        </property>
+        <property name="label" stdset="0">
+         <string>ROOM</string>
+        </property>
+        <property name="text" stdset="0">
+         <string/>
+        </property>
+        <property name="placeholder" stdset="0">
+         <string>Please enter the number</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_6">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QiliTextField</class>
+   <extends>QWidget</extends>
+   <header>QiliTextField.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QiliTitleBar</class>
+   <extends>QWidget</extends>
+   <header>QiliTitleBar.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../Widgets/QiliWidgets.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>qiliTitleBar</sender>
+   <signal>closing()</signal>
+   <receiver>QiliLauncher</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>425</x>
+     <y>19</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>425</x>
+     <y>343</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

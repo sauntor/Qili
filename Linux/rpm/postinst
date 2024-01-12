@@ -1,0 +1,1 @@
+#cp -fv /opt/%{name}/share/applications/%{name}.desktop %{_datadir}/applications/%{name}.desktop

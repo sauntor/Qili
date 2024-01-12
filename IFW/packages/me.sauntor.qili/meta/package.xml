@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Qili</DisplayName>
+    <Description>Qili弹幕姬</Description>
+    <Version>1.0.1</Version>
+    <ReleaseDate>2024-01-10</ReleaseDate>
+    <Licenses>
+        <License name="MulanPubL-2.0" file="LICENSE" />
+    </Licenses>
+    <Default>true</Default>
+    <Script>desktop.qs</Script>
+</Package>

@@ -1,0 +1,15 @@
+[Desktop Entry]
+Type=Application
+Name=Qili
+Name[zh_CN]=Qili弹幕姬
+Name[zh_TW]=Qili彈幕姬
+Categories=Network;AudioVideo;
+Encoding=UTF-8
+Exec=@QILI_INSTALL_PREFIX@/bin/Qili
+GenericName=Bilibili Live Speaker
+GenericName[zh_CN]=B站直播间弹幕朗读工具
+GenericName[zh_TW]=B站直播間彈幕朗讀者
+X-KDE-StartupNotify=true
+Terminal=false
+Type=Application
+Icon=@QILI_INSTALL_PREFIX@/@CMAKE_INSTALL_DATADIR@/pixmaps/qili.png
