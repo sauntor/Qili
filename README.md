@@ -2,6 +2,8 @@
 
 ### 介绍
 Qili 是一款免费且开源的B站直播弹幕语音播报软件，主要适配适配 `Windows` 及 `Linux` 平台。
+> 主站: https://github.com/sauntor/Qili
+> 镜像：https://gitee.com/sauntor/Qili
 
 ### 版权声明
 本软件使用 [GPL v3](https://www.gnu.org/licenses/gpl-3.0.txt) 进行授权。
