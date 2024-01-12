@@ -135,3 +135,4 @@ Qili 是一款免费且开源的B站直播弹幕语音播报软件，主要适�
 1. https://github.com/SocialSisterYi/bilibili-API-collect
 2. https://www.qt.io/
 3. https://github.com/google/brotli
+4. https://github.com/nayuki/QR-Code-generator

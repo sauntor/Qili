@@ -137,3 +137,4 @@ So, you may need to install some extra components provided by your Linux vendor.
 1. https://github.com/SocialSisterYi/bilibili-API-collect
 2. https://www.qt.io/
 3. https://github.com/google/brotli
+4. https://github.com/nayuki/QR-Code-generator
