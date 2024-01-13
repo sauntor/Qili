@@ -53,11 +53,7 @@ int main(int argc, char *argv[])
             QLibrary lib(path + QDir::separator() + module);
             if (lib.load()) {
                 qDebug() << "Loaded Module = " << module << " => " << lib.fileName();
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-                if (std::strcmp(module, "QiliApp") == 0) {
-#else
-                if (strcmp(module, "QiliApp") == 0) {
-#endif
+                if (qstrcmp(module, "QiliApp") == 0) {
                     QiliApp = (QiliAppType) lib.resolve("QiliApp");
                 }
                 break;

@@ -41,13 +41,8 @@ void QiliDialog::mousePressEvent(QMouseEvent *event)
     bool should = child == nullptr;
     if (!should) {
         auto meta = child->metaObject();
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-        should = std::strcmp(meta->className(), "QWidget") == 0
-                 || std::strcmp(meta->className(), "QiliTitleBar") == 0;
-#else
-        should = strcmp(meta->className(), "QWidget") == 0
-                 || strcmp(meta->className(), "QiliTitleBar") == 0;
-#endif
+        should = qstrcmp(meta->className(), "QWidget") == 0
+                 || qstrcmp(meta->className(), "QiliTitleBar") == 0;
     }
     if (!should) {
         auto *parent = child->parentWidget();
