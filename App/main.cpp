@@ -14,17 +14,14 @@
    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+#include "QiliApp.h"
 #include "QiliGlobal.h"
 #include "QiliLogger.h"
 
-#include <QLibrary>
 #include <QApplication>
-#include <QDir>
 #include <QDebug>
-
-using QiliAppType = int (*)(QApplication &app);
-
-QStringList libsForQili();
+#include <QDir>
+#include <QLibrary>
 
 int main(int argc, char *argv[])
 {
@@ -32,58 +29,10 @@ int main(int argc, char *argv[])
     QiliLogger::install();
     qDebug() << "Starting...";
 
-    QDir dir = app.applicationDirPath();
-    dir.cdUp();
-
-    const auto libs = libsForQili();
-    for (const auto &lib : std::as_const(libs)) {
-        auto path = dir.absoluteFilePath(lib);
-        if (QFile(path).exists()) {
-            QCoreApplication::addLibraryPath(QString(path));
-            qDebug() << "Added to Library Path: " << path;
-        }
-    }
-    const auto libraryPaths = QCoreApplication::libraryPaths();
-    qDebug() << "Final libraryPaths = " << libraryPaths;
-
-    QiliAppType QiliApp = nullptr;
-    const auto modules = { "QRCodeGen", "QiliWidgets", "QiliApp" };
-    for (const auto &module : modules) {
-        for (const auto &path : std::as_const(libraryPaths)) {
-            QLibrary lib(path + QDir::separator() + module);
-            if (lib.load()) {
-                qDebug() << "Loaded Module = " << module << " => " << lib.fileName();
-                if (qstrcmp(module, "QiliApp") == 0) {
-                    QiliApp = (QiliAppType) lib.resolve("QiliApp");
-                }
-                break;
-            } else {
-                qDebug() << "Can't load : " << module << " => " << lib.errorString();
-            }
-        }
-    }
-    if (QiliApp == nullptr) {
-        qCritical() << "QiliApp not found in: " << libraryPaths;
-        return -1;
-    }
-
-    qDebug() << "Started";
-
     int code = 0;
     do {
         code = QiliApp(app);
     } while (code == Qili::Restart);
 
     return code;
-}
-
-QStringList libsForQili()
-{
-    if (Qili::Released) {
-        return { "lib64", "lib", "plugins" };
-    }
-    else {
-        // for development layout
-        return {"Thirdparty", "Widgets", "App"};
-    }
 }

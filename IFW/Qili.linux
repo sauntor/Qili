@@ -1,0 +1,34 @@
+#!/bin/bash
+
+app_dir=$(cd "$(dirname $0)/.." && pwd)
+LD_LIBRARY_PATH=${LD_LIBRARY_PATH:-""}
+app_all_in_one="@IFW_WITH_LIBS@"
+app_qt_version="@QT_VERSION_MAJOR@"
+
+for lib_hint in /usr /usr/local $app_dir; do
+    lib_dir=""
+    if [ -d "$lib_hint/lib64" ]; then
+        lib_dir="$lib_hint/lib64"
+    elif [ -d "$lib_hint/lib" ]; then
+        lib_dir="$lib_hint/lib"
+    fi
+    if [ -n "$lib_dir" ]; then
+        LD_LIBRARY_PATH="$lib_dir:$LD_LIBRARY_PATH"
+        if [ $app_all_in_one != "ON" ] && [ "x$QT_PLUGIN_PATH" == "x" ]; then
+            for qver in qt${app_qt_version} qt; do
+                if [ -d "$lib_dir/$qver/plugins" ]; then
+                    QT_PLUGIN_PATH="$lib_dir/$qver/plugins"
+                    break;
+                fi
+            done
+        fi
+    fi
+done
+
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH:0:$(( ${#LD_LIBRARY_PATH} -1 ))}"
+
+if [ $app_all_in_one == "ON" ]
+    export QT_PLUGIN_PATH="$app_dir/plugins"
+fi
+
+exec "$app_dir/bin/QiliApp" "$@"

@@ -19,27 +19,12 @@
 #include "QiliGlobal.h"
 #include "QiliTray.h"
 
-#include <QHBoxLayout>
-#include <QVBoxLayout>
-#include <QDialog>
-
 #include <QApplication>
+#include <QDir>
+#include <QFile>
+#include <QLibraryInfo>
 #include <QLocale>
 #include <QTranslator>
-#include <QLibraryInfo>
-
-#include <QJsonArray>
-#include <QJsonObject>
-#include <QJsonValue>
-
-#include <QEventLoop>
-#include <QWebSocket>
-#include <QSizePolicy>
-#include <QSettings>
-#include <QTextStream>
-#include <QFile>
-#include <QDir>
-#include <QOperatingSystemVersion>
 
 using namespace Qili;
 
@@ -51,33 +36,38 @@ int QiliApp(QApplication &app)
     app.setOrganizationDomain(OrganizationDomain);
 
     QDir binDir = QCoreApplication::applicationDirPath();
-    QDir appDir = binDir.absoluteFilePath("..");
+    QDir appDir = QDir(binDir.absoluteFilePath("..")).canonicalPath();
+    const auto uiLanguages = QLocale::system().uiLanguages();
+
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    auto translationsDir = QLibraryInfo::path(QLibraryInfo::TranslationsPath);
+#else
+    auto translationsDir = QLibraryInfo::location(QLibraryInfo::TranslationsPath))
+#endif
 
     QTranslator qtranslator;
-    if (qtranslator.load(QLocale::system(), QString("qt"), QString("_"),
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-                         QLibraryInfo::path(QLibraryInfo::TranslationsPath))
-#else
-                         QLibraryInfo::location(QLibraryInfo::TranslationsPath))
-#endif
-        ) {
-        app.installTranslator(&qtranslator);
-    } else {
-        qWarning() << "Can't load Qt Library Translations";
+    for (const QString &locale : uiLanguages) {
+        auto ts = translationsDir + QDir::separator() + "qt_" + QLocale(locale).name();
+        if (qtranslator.load(ts)) {
+            app.installTranslator(&qtranslator);
+            break;
+        } else {
+            qWarning() << "Can't load Qt Library Translations: " << ts;
+        }
     }
 
-    const QStringList uiLanguages = QLocale::system().uiLanguages();
     const QStringList components = {"App", "Widgets"};
     for (const auto &component : std::as_const(components)) {
         QTranslator *translator = new QTranslator(&app);
         auto found = false;
         for (const QString &locale : uiLanguages) {
             const QString baseName = "Qili" + component + "_" + QLocale(locale).name();
-            if (translator->load(":/i18n/" + baseName) ||
-                // For Debug Environment
-                translator->load(appDir.filePath(component + "/") + baseName) ||
-                // For Release Environment
-                translator->load(appDir.filePath("share/translations/") + baseName)) {
+#if QILI_RELEASE_BUILD
+            auto ts = appDir.filePath(QILI_TRANSLATIONS_DIR) + QDir::separator() + baseName;
+#else
+            auto ts = appDir.filePath(component) + QDir::separator() + baseName;
+#endif
+            if (translator->load(ts)) {
                 qDebug() << "translation loaded: " << translator->filePath();
                 found = true;
                 break;
@@ -90,7 +80,6 @@ int QiliApp(QApplication &app)
         }
     }
 
-
     QFile theme(":/themes/light.css");
     if (theme.open(QFile::ReadOnly)) {
         auto styles = theme.readAll();
@@ -98,10 +87,8 @@ int QiliApp(QApplication &app)
     }
     app.setQuitOnLastWindowClosed(false);
 
-
     QiliTray tray;
     tray.show();
-
 
     return app.exec();
 }

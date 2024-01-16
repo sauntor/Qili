@@ -49,32 +49,39 @@ endif()
 
 option(DEV_MODE    "Enable developing mode?" OFF)
 option(USE_QT5     "Force to build Qili using Qt5?" OFF)
-option(USE_IFW     "Use Qt IFW for packaging?" OFF)
 option(USE_CPACK   "Use CPack for packaging?" OFF)
+option(IFW_WITH_LIBS   "Build an IFW installer which contains Qt and 3rdparty libraries?" OFF)
+set(QILI_PACKAGE_ID   "me.sauntor.qili" CACHE STRING "The `package` name of rpm/deb/ifw")
 
 if (USE_CPACK)
     set(QILI_PACK_TYPE "CPACK")
-    set(QILI_INSTALL_PREFIX "/usr")
+    if (NOT QILI_INSTALL_PREFIX)
+        set(QILI_INSTALL_PREFIX "/usr")
+    endif()
 endif()
 if (USE_IFW)
     if (USE_CPACK)
         message(FATAL_ERROR "Please DO NOT use IFW and CPack together!")
     endif()
     set(QILI_PACK_TYPE "IFW")
-    set(QILI_INSTALL_PREFIX "/opt")
+    if (NOT QILI_INSTALL_PREFIX)
+        set(QILI_INSTALL_PREFIX "/opt")
+    endif()
+    message(STATUS "QILI_INSTALL_PREFIX = ${QILI_INSTALL_PREFIX}")
 endif()
 if (DEFINED QILI_PACK_TYPE)
     message(WARNING "Enter ${QILI_PACK_TYPE} packaging mode")
     if (NOT QILI_RELEASE_BUILD)
         message(WARNING "Please use ${QILI_PACK_TYPE} packaging mode with \"Release\" build type")
     endif()
-endif()
-message(STATUS "CMAKE_INSTALL_PREFIX = ${CMAKE_INSTALL_PREFIX}")
-if (NOT QILI_INSTALL_PREFIX)
-    set(QILI_INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
+    if (IFW_WITH_LIBS)
+        message(WARNING [[
+Please ensure you are using Qt binaries built from sources or from qt.io !
+DO NOT use the binaries shipped by the Linux vendor!
+        ]])
+    endif()
 endif()
 
-configure_file(Config.h.in ${CMAKE_BINARY_DIR}/Config.h @ONLY)
 
 set(QILI_QT_DEPS
     Core
@@ -84,6 +91,7 @@ set(QILI_QT_DEPS
     TextToSpeech
     Widgets
     LinguistTools
+    VirtualKeyboard
 )
 if (DEV_MODE OR NOT QILI_RELEASE_BUILD)
     list(APPEND QILI_QT_DEPS UiPlugin)
@@ -162,8 +170,14 @@ endfunction()
 qili_project_setup()
 
 include(GNUInstallDirs)
+if (NOT QILI_INSTALL_PREFIX)
+    set(QILI_INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
+endif()
+set(QILI_TRANSLATIONS_DIR "${CMAKE_INSTALL_DATADIR}/${QILI_PACKAGE_ID}/translations")
 
+configure_file(Config.h.in ${CMAKE_BINARY_DIR}/Config.h @ONLY)
 
+# Project Sub Modules
 add_subdirectory(Thirdparty)
 add_subdirectory(Widgets)
 if (DEV_MODE OR NOT QILI_RELEASE_BUILD)
@@ -171,8 +185,8 @@ if (DEV_MODE OR NOT QILI_RELEASE_BUILD)
 endif()
 add_subdirectory(App)
 
-include("${CMAKE_SOURCE_DIR}/QiliInstall.cmake")
 
+include("${CMAKE_SOURCE_DIR}/QiliInstall.cmake")
 
 if (USE_CPACK)
     configure_file ("${CMAKE_SOURCE_DIR}/QiliCPack.cmake"

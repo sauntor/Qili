@@ -77,8 +77,4 @@ const bool Released = QILI_RELEASE_BUILD;
     }
 };
 
-// Keep these macros from Config.h only lives in this header
-#undef QILI_VERSION
-#undef QILI_RELEASE_BUILD
-
 #endif // QILIGLOBAL_H

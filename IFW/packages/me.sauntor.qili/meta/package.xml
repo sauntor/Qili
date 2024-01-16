@@ -5,8 +5,8 @@
     <Version>1.0.1</Version>
     <ReleaseDate>2024-01-10</ReleaseDate>
     <Licenses>
-        <License name="MulanPubL-2.0" file="LICENSE" />
+        <License name="GPL-3.0" file="LICENSE" />
     </Licenses>
-    <Default>true</Default>
+    <ForcedInstallation>true</ForcedInstallation>
     <Script>desktop.qs</Script>
 </Package>

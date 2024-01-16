@@ -23,5 +23,7 @@
 #cmakedefine01 QILI_ON_LINUX
 #cmakedefine01 QILI_ON_UNIX
 #cmakedefine01 QILI_ON_APPLE
+#cmakedefine QILI_PACKAGE_ID "@QILI_PACKAGE_ID@"
+#cmakedefine QILI_TRANSLATIONS_DIR "@QILI_TRANSLATIONS_DIR@"
 
 #endif // CONFIG_H
