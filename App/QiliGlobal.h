@@ -58,6 +58,7 @@ const bool Released = QILI_RELEASE_BUILD;
         constexpr const char * const Cookies = "cookies";
         constexpr const char * const KeepUser = "keep_user";
         constexpr const char * const KeepRoom = "keep_room";
+        constexpr const char * const ReverseLogs = "reverse_logs";
         constexpr const char * const Room = "room";
         constexpr const char * const Lang = "lang";
         constexpr const char * const Voice = "voice";

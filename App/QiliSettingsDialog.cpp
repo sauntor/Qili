@@ -33,6 +33,7 @@ QiliSettingsDialog::QiliSettingsDialog(QiliSettings *settings, QiliSpeaker *spea
     // basic tab
     QObject::connect(ui->userRadio, &QRadioButton::clicked, this, &QiliSettingsDialog::onUserRadioClicked);
     QObject::connect(ui->roomRadio, &QRadioButton::clicked, this, &QiliSettingsDialog::onRoomRadioClicked);
+    QObject::connect(ui->reverseRadio, &QRadioButton::clicked, this, &QiliSettingsDialog::onReverseRadioClicked);
 
     // voice tab
     QObject::connect(ui->languageCombo, qOverload<int>(&QComboBox::currentIndexChanged), this, &QiliSettingsDialog::onLanguageChanged);
@@ -66,6 +67,7 @@ void QiliSettingsDialog::show()
     ui->pitchSpin->setValue(pitch);
     ui->roomRadio->setChecked(mSettings->keepRoom());
     ui->userRadio->setChecked(mSettings->keepUser());
+    ui->reverseRadio->setChecked(mSettings->reverseLogs());
 
     mReset = true;
     setupLanguages();
@@ -197,6 +199,12 @@ void QiliSettingsDialog::onRoomRadioClicked(bool checked)
             ui->roomRadio->setChecked(true);
         }
     }
+}
+
+void QiliSettingsDialog::onReverseRadioClicked(bool checked)
+{
+    mSettings->setReverseLogs(checked);
+    emit reverseChanged(checked);
 }
 
 void QiliSettingsDialog::onTestButtonClicked()

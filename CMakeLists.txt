@@ -16,8 +16,8 @@
 cmake_minimum_required(VERSION 3.5)
 
 project(
-    Qili VERSION 1.0.0 LANGUAGES CXX
-    HOMEPAGE_URL https://gitee.com/sauntor/Qili
+    Qili VERSION 1.1.0 LANGUAGES CXX
+    HOMEPAGE_URL https://github.com/sauntor/Qili
     DESCRIPTION  "A subtitle spearker for live broadcasting at bilibili.com"
 )
 

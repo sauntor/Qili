@@ -66,7 +66,7 @@
         <translation>房间号</translation>
     </message>
     <message>
-        <location filename="QiliLogin.cpp" line="+63"/>
+        <location filename="QiliLogin.cpp" line="+68"/>
         <location line="+40"/>
         <source>Scan QrCode</source>
         <translation>登录扫码</translation>
@@ -82,32 +82,38 @@
     <message>
         <location filename="QiliSettingsDialog.ui" line="+20"/>
         <location line="+28"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliSettingsDialog.h" line="+283"/>
+        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliSettingsDialog.h" line="+296"/>
         <location line="+1"/>
         <source>Qili Settings</source>
         <translation>Qili配置</translation>
     </message>
     <message>
         <location line="+32"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliSettingsDialog.h" line="+5"/>
+        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliSettingsDialog.h" line="+7"/>
         <source>Basic</source>
         <translation>基础</translation>
     </message>
     <message>
         <location line="+6"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliSettingsDialog.h" line="-4"/>
+        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliSettingsDialog.h" line="-6"/>
         <source>Remember Room</source>
         <translation>记住房间</translation>
     </message>
     <message>
-        <location line="+10"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliSettingsDialog.h" line="+1"/>
+        <location line="+62"/>
+        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliSettingsDialog.h" line="+3"/>
         <source>Remember User</source>
         <translation>记住用户</translation>
     </message>
     <message>
-        <location line="+69"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliSettingsDialog.h" line="+11"/>
+        <location line="+10"/>
+        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliSettingsDialog.h" line="+1"/>
+        <source>Reverse Logs</source>
+        <translation>逆时展示弹幕</translation>
+    </message>
+    <message>
+        <location line="+27"/>
+        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliSettingsDialog.h" line="+10"/>
         <source>Voices</source>
         <translation>语音</translation>
     </message>
@@ -154,7 +160,7 @@
         <translation>应用</translation>
     </message>
     <message>
-        <location filename="QiliSettingsDialog.cpp" line="+168"/>
+        <location filename="QiliSettingsDialog.cpp" line="+174"/>
         <location line="+6"/>
         <location line="+15"/>
         <source>Qili</source>
@@ -244,7 +250,7 @@
         <translation type="vanished">连接(&amp;C)</translation>
     </message>
     <message>
-        <location filename="QiliTray.cpp" line="+45"/>
+        <location filename="QiliTray.cpp" line="+52"/>
         <source>Re&amp;Connect</source>
         <translation>重连(&amp;C)</translation>
     </message>
@@ -274,8 +280,18 @@
         <translation>退出(&amp;E)</translation>
     </message>
     <message>
-        <location line="+14"/>
-        <location line="+127"/>
+        <location line="+1"/>
+        <source>Show Logs</source>
+        <translation>显示日志</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>&amp;About</source>
+        <translation>关于(&amp;A)</translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <location line="+137"/>
         <source>Qili</source>
         <translation>Qili</translation>
     </message>
@@ -295,17 +311,17 @@
         <translation>欢迎 %1 进入直播间</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+36"/>
         <source>%1 %2 %3 %4 x %5</source>
         <translation>%1 %2 %3 %4 乘以 %5</translation>
     </message>
     <message>
-        <location line="+24"/>
+        <location line="+22"/>
         <source>%1 visitors until now</source>
         <translation>本场直播累计访客%1人</translation>
     </message>
     <message>
-        <location line="+12"/>
+        <location line="+13"/>
         <source>%1 Watcher(s)</source>
         <translation>当前人气 %1</translation>
     </message>
@@ -385,7 +401,7 @@
         <translation type="vanished">九</translation>
     </message>
     <message>
-        <location filename="Utility.cpp" line="+25"/>
+        <location filename="Utility.cpp" line="+29"/>
         <source>0</source>
         <comment>speakable-username</comment>
         <translation type="unfinished">零</translation>

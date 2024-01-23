@@ -61,6 +61,7 @@ private slots:
     void onLoggerTriggered();
     void onConnectTriggered();
     void onThanksTriggered();
+    void onShowLogsTriggered();
 
     void onAuthenticated();
     void onSubtitleReceived(const QJsonObject &subtitle);
@@ -86,6 +87,7 @@ private:
     QAction   *mThanksAction;
     QAction   *mRestartAction;
     QAction   *mExitAction;
+    QAction   *mShowLogsAction;
 
     QiliLauncher       *mLauncher;
     QiliSettingsDialog *mSettingsDialog;

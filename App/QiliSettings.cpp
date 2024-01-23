@@ -73,6 +73,11 @@ double QiliSettings::speakerPitch() const
     return mSettings->value(SettingKeys::Pitch, 0.0).toDouble();
 }
 
+bool QiliSettings::reverseLogs() const
+{
+    return mSettings->value(SettingKeys::ReverseLogs, true).toBool();
+}
+
 QLocale QiliSettings::toStorable(const QLocale &locale)
 {
     return QLocale(locale.language(), locale.script(), QLocale::AnyCountry);
@@ -86,6 +91,11 @@ void QiliSettings::setKeepUser(bool value)
 void QiliSettings::setKeepRoom(bool value)
 {
     mSettings->setValue(SettingKeys::KeepRoom, value);
+}
+
+void QiliSettings::setReverseLogs(bool value) const
+{
+    mSettings->setValue(SettingKeys::ReverseLogs, value);
 }
 
 void QiliSettings::setRoom(int value)

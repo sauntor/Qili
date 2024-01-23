@@ -38,11 +38,14 @@ public:
     int     speakerVolume() const;
     double  speakerPitch() const;
 
+    bool    reverseLogs() const;
+
     static QLocale toStorable(const QLocale &locale);
 
 public slots:
     void setKeepUser(bool value);
     void setKeepRoom(bool value);
+    void setReverseLogs(bool value) const;
     void setRoom(int value);
     void setCookies(const QByteArray &value);
     void removeCookies();
@@ -53,16 +56,6 @@ public slots:
 
 private:
     QSettings *mSettings;
-    /**
-     *     auto system = mSpeaker->narrowed(QLocale::system());
-    mSelectedLang = mSettings->value(SettingKeys::Lang, system).value<QLocale>();
-    mSelectedVoice = mSettings->value(SettingKeys::Voice).toString();
-    auto volume = mSettings->value(SettingKeys::Volume, 0).toInt();
-    auto pitch = mSettings->value(SettingKeys::Pitch, 0.0).toDouble();
-*/
-
-
-
 };
 
 #endif // QILISETTINGS_H

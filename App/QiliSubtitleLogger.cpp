@@ -39,28 +39,60 @@ QiliSubtitleLogger::~QiliSubtitleLogger()
     delete ui;
 }
 
+bool QiliSubtitleLogger::reversed() const
+{
+    return mReversed;
+}
+
 void QiliSubtitleLogger::subtitleReceived(const QString &message)
 {
     if (mMaxLines == 1) {
         ui->subtitles->clear();
     }
+
     int lines = ui->subtitles->document()->lineCount() - 1;
     if (lines >= mMaxLines) {
-        auto cursor = ui->subtitles->textCursor();
-        cursor.movePosition(QTextCursor::End);
-        cursor.movePosition(QTextCursor::Up, QTextCursor::KeepAnchor);
-        cursor.movePosition(QTextCursor::StartOfLine, QTextCursor::KeepAnchor);
-        cursor.select(QTextCursor::BlockUnderCursor);
-        qDebug() << "Remove LINE:" << cursor.selectedText();
-        cursor.removeSelectedText();
-        cursor.clearSelection();
+        if (mReversed) {
+            auto cursor = ui->subtitles->textCursor();
+            cursor.movePosition(QTextCursor::End);
+            cursor.movePosition(QTextCursor::Up, QTextCursor::KeepAnchor);
+            cursor.movePosition(QTextCursor::StartOfLine, QTextCursor::KeepAnchor);
+            cursor.select(QTextCursor::BlockUnderCursor);
+            qDebug() << "Remove LINE:" << cursor.selectedText();
+            cursor.removeSelectedText();
+            cursor.clearSelection();
+        } else {
+            auto cursor = ui->subtitles->textCursor();
+            cursor.movePosition(QTextCursor::Start);
+            cursor.movePosition(QTextCursor::Up);
+            cursor.movePosition(QTextCursor::Down, QTextCursor::KeepAnchor);
+
+            cursor.select(QTextCursor::BlockUnderCursor);
+            qDebug() << "Remove LINE:" << lines << " => " << cursor.selectedText();
+            cursor.removeSelectedText();
+            cursor.clearSelection();
+        }
     }
-    ui->subtitles->moveCursor(QTextCursor::Start);
-    ui->subtitles->insertPlainText(message);
-    ui->subtitles->insertPlainText("\n");
+
+    if (mReversed) {
+        ui->subtitles->moveCursor(QTextCursor::Start);
+        ui->subtitles->insertPlainText(message);
+        ui->subtitles->insertPlainText("\n");
+    } else {
+        ui->subtitles->moveCursor(QTextCursor::End);
+        ui->subtitles->moveCursor(QTextCursor::Up);
+        ui->subtitles->moveCursor(QTextCursor::StartOfLine);
+        ui->subtitles->append(message);
+    }
 }
 
 void QiliSubtitleLogger::setMaxLines(int maxLines)
 {
     mMaxLines = maxLines;
+}
+
+void QiliSubtitleLogger::setReversed(bool reversed)
+{
+    ui->subtitles->clear();
+    mReversed = reversed;
 }

@@ -19,6 +19,8 @@
 #include <QDate>
 #include <QDebug>
 
+static const auto LOG_SUFFIX = ".log";
+
 QiliLogger::QiliLogger() : QObject(nullptr)
 {
     QDir dir = QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation);
@@ -62,7 +64,6 @@ void QiliLogger::logging(QtMsgType type, const QMessageLogContext &context, cons
     file->write(qUtf8Printable(formated));
     file->write("\n");
     file->flush();
-    // std::cout << "LOG: " << formated << std::endl;
 }
 
 void QiliLogging(QtMsgType type, const QMessageLogContext &context, const QString &message)
@@ -78,9 +79,20 @@ QiliLogger &QiliLogger::install()
     if (!logger.mInstalled) {
         logger.mConsole = qInstallMessageHandler(QiliLogging);
         logger.mInstalled = true;
+        logger.clean();
         qInfo() << "QiliLogger initialized: has console? " << (logger.mConsole != nullptr);
     }
     return logger;
+}
+
+QString QiliLogger::dir()
+{
+    auto &logger = install();
+
+    if (logger.mDir == nullptr || !logger.mDir->exists()) {
+        return "";
+    }
+    return logger.mDir->canonicalPath();
 }
 
 QFile *QiliLogger::log()
@@ -97,7 +109,7 @@ QFile *QiliLogger::log()
             mFile->close();
             delete mFile;
         }
-        auto filename = today.toString(Qt::ISODate) + ".log";
+        auto filename = today.toString(Qt::ISODate) + LOG_SUFFIX;
         auto file = new QFile(mDir->absoluteFilePath(filename));
         if (!file->open(QFile::ReadWrite)) {
             if (mConsole != nullptr) {
@@ -111,7 +123,32 @@ QFile *QiliLogger::log()
         else {
             mFile = file;
             mCanWrite = true;
+            // remove expired logs
+            clean();
         }
     }
     return mFile;
+}
+
+void QiliLogger::clean()
+{
+    if (!mCanWrite) {
+        return;
+    }
+
+    const auto logs = mDir->entryList(QDir::Files);
+    const auto today = QDate::currentDate();
+    for (const auto &log : logs) {
+        const auto dateString = log.sliced(0, log.size() - qstrlen(LOG_SUFFIX));
+        const auto date = QDate::fromString(dateString, Qt::ISODate);
+        // keep logs in a week
+        if (date.daysTo(today) < 7) {
+            continue;
+        }
+        auto removed = mDir->remove(log);
+        if (!removed) {
+            qCritical() << "Can NOT remove expired log: "
+                        << mDir->absoluteFilePath(log);
+        }
+    }
 }

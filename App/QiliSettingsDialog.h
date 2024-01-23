@@ -45,6 +45,7 @@ public:
 signals:
     void restart();
     void apply(const QLocale &locale, const QVoice &voice, int volume, double pitch);
+    void reverseChanged(bool reverse);
 
 public slots:
     void show();
@@ -58,6 +59,7 @@ private slots:
     void onPitchSliderChanged(int value);
     void onUserRadioClicked(bool checked);
     void onRoomRadioClicked(bool checked);
+    void onReverseRadioClicked(bool checked);
     void onTestButtonClicked();
     void onApplyButtonClicked();
 

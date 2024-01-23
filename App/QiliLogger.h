@@ -33,17 +33,20 @@ class QiliLogger : public QObject
     Q_OBJECT
 
 public:
+
     void logging(QtMsgType type, const QMessageLogContext &context, const QString &message);
 
     static QiliLogger& install();
+    static QString dir();
 
 
 private:
     QiliLogger();
     ~QiliLogger();
 
-    void console(QtMsgType type, const QMessageLogContext &context, const QString &message);
+    void   console(QtMsgType type, const QMessageLogContext &context, const QString &message);
     QFile *log();
+    void   clean();
 
     bool              mInstalled{false};
     bool              mCanWrite{true};

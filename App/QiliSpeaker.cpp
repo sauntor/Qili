@@ -157,7 +157,6 @@ QVoice QiliSpeaker::voice() const
     return mTextToSpeech->voice();
 }
 
-
 void QiliSpeaker::setVoice(const QVoice &voice)
 {
     mTextToSpeech->setVoice(voice);

@@ -42,7 +42,7 @@ int QiliApp(QApplication &app)
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     auto translationsDir = QLibraryInfo::path(QLibraryInfo::TranslationsPath);
 #else
-    auto translationsDir = QLibraryInfo::location(QLibraryInfo::TranslationsPath))
+    auto translationsDir = QLibraryInfo::location(QLibraryInfo::TranslationsPath);
 #endif
 
     QTranslator qtranslator;

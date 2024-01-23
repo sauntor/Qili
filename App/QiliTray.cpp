@@ -19,6 +19,7 @@
 #include "QiliLogin.h"
 #include "QiliGlobal.h"
 #include "Utility.h"
+#include "QiliLogger.h"
 
 #include <QDebug>
 #include <QMap>
@@ -26,6 +27,7 @@
 #include <QOperatingSystemVersion>
 #include <QMessageBox>
 #include <QMouseEvent>
+#include <QDesktopServices>
 
 using namespace Qili;
 using namespace Utility::JSON;
@@ -39,6 +41,7 @@ QiliTray::QiliTray(QObject *parent)
     mLauncher = new QiliLauncher(mHttp);
     mLauncher->installEventFilter(this);
     mSubtitleLogger = new QiliSubtitleLogger();
+    mSubtitleLogger->setReversed(mSettings->reverseLogs());
 
     mSpeaker = new QiliSpeaker();
     mSpeaker->restore(*mSettings);
@@ -52,13 +55,16 @@ QiliTray::QiliTray(QObject *parent)
     mThanksAction = new QAction(tr("&Thanks"));
     mRestartAction = new QAction(tr("&Restart"));
     mExitAction = new QAction(tr("&Exit"));
+    mShowLogsAction = new QAction(tr("Show Logs"));
 
     menu = new QMenu();
     menu->addAction(mConnectAction);
     menu->addAction(mLoggerAction);
     menu->addAction(mSettingsAction);
     menu->addSeparator();
-    menu->addAction(mThanksAction);
+    auto *about = menu->addMenu(tr("&About"));
+    about->addAction(mThanksAction);
+    about->addAction(mShowLogsAction);
     menu->addSeparator();
     menu->addAction(mRestartAction);
     menu->addAction(mExitAction);
@@ -82,6 +88,7 @@ QiliTray::QiliTray(QObject *parent)
     QObject::connect(mConnectAction, &QAction::triggered, this, &QiliTray::onConnectTriggered);
     QObject::connect(mSettingsAction, &QAction::triggered, mSettingsDialog, &QiliSettingsDialog::show);
     QObject::connect(mThanksAction, &QAction::triggered, this, &QiliTray::onThanksTriggered);
+    QObject::connect(mShowLogsAction, &QAction::triggered, this, &QiliTray::onShowLogsTriggered);
     QObject::connect(mRestartAction, &QAction::triggered, this, &QiliTray::onRestart);
     QObject::connect(mExitAction, &QAction::triggered, qApp, &QCoreApplication::exit);
 
@@ -94,6 +101,7 @@ QiliTray::QiliTray(QObject *parent)
 
     QObject::connect(mSettingsDialog, &QiliSettingsDialog::apply, this, &QiliTray::onVoiceApply);
     QObject::connect(mSettingsDialog, &QiliSettingsDialog::restart, this, &QiliTray::onRestart);
+    QObject::connect(mSettingsDialog, &QiliSettingsDialog::reverseChanged, mSubtitleLogger, &QiliSubtitleLogger::setReversed);
 }
 
 QiliTray::~QiliTray()
@@ -188,6 +196,14 @@ void QiliTray::onThanksTriggered()
     mThanksDialog->activateWindow();
 }
 
+void QiliTray::onShowLogsTriggered()
+{
+    auto dir = QiliLogger::dir();
+    if (!dir.isEmpty()) {
+        QDesktopServices::openUrl(dir);
+    }
+}
+
 void QiliTray::onAuthenticated()
 {
     started = true;
@@ -218,9 +234,10 @@ void QiliTray::onSubtitleReceived(const QJsonObject &subtitle)
         QString uname = subtitle / "data" / "uinfo" / "base" / "name" >> JString;
         text = tr("%1 enter room").arg(Speakable::username(uname));
     }
-    else if (cmd == "ENTRY_EFFECT") {
-        text = subtitle / "data" / "copy_writing" >> JString;
-    }
+    // this for Guard only, emitted just after the message above
+    // else if (cmd == "ENTRY_EFFECT") {
+    //     text = subtitle / "data" / "copy_writing" >> JString;
+    // }
     else if (cmd == "ONLINE_RANK_V2") {
         auto data = subtitle / "data" >> JObject;
         QJsonArray list;
@@ -271,16 +288,15 @@ void QiliTray::onSubtitleReceived(const QJsonObject &subtitle)
         auto onlineCount = data / "online_count" >> JInt;
     }
     else if (cmd == "WATCHED_CHANGE") {
-        //几人看过本场直播
         auto count = data / "num" >> JInt;
-        //描述文本
-        // text = data / "text_large" >> JString;
-        text = tr("%1 visitors until now").arg(count);
+        // auto text = data / "text_large" >> JString;
+        auto text = tr("%1 visitors until now").arg(count);
+        setToolTip(text);
     }
 
     if (!text.isEmpty()) {
         mSpeaker->speak(text);
-        mSubtitleLogger->subtitleReceived(text);
+        // mSubtitleLogger->subtitleReceived(text);
     }
 }
 

@@ -35,13 +35,16 @@ public:
     ~QiliSubtitleLogger();
 
     int maxLines() const;
+    bool reversed() const;
 
 public slots:
     void subtitleReceived(const QString &message);
     void setMaxLines(int maxLines);
+    void setReversed(bool reversed);
 
 private:
-    int                     mMaxLines{100};
+    int                     mMaxLines{2};
+    bool                    mReversed{true};
     Ui::QiliSubtitleLogger *ui;
 };
 
