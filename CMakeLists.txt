@@ -50,6 +50,7 @@ endif()
 option(DEV_MODE    "Enable developing mode?" OFF)
 option(USE_QT5     "Force to build Qili using Qt5?" OFF)
 option(USE_CPACK   "Use CPack for packaging?" OFF)
+option(USE_IFW   "Use IFW for packaging?" OFF)
 option(IFW_WITH_LIBS   "Build an IFW installer which contains Qt and 3rdparty libraries?" OFF)
 set(QILI_PACKAGE_ID   "me.sauntor.qili" CACHE STRING "The `package` name of rpm/deb/ifw")
 

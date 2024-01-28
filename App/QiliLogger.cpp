@@ -139,7 +139,7 @@ void QiliLogger::clean()
     const auto logs = mDir->entryList(QDir::Files);
     const auto today = QDate::currentDate();
     for (const auto &log : logs) {
-        const auto dateString = log.sliced(0, log.size() - qstrlen(LOG_SUFFIX));
+        const auto dateString = log.left(log.size() - qstrlen(LOG_SUFFIX));
         const auto date = QDate::fromString(dateString, Qt::ISODate);
         // keep logs in a week
         if (date.daysTo(today) < 7) {
