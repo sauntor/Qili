@@ -63,9 +63,9 @@ int QiliApp(QApplication &app)
         for (const QString &locale : uiLanguages) {
             const QString baseName = "Qili" + component + "_" + QLocale(locale).name();
 #if QILI_RELEASE_BUILD
-            auto ts = appDir.filePath(QILI_TRANSLATIONS_DIR) + QDir::separator() + baseName;
+            auto ts = appDir.filePath(QILI_TRANSLATIONS_DIR) + "/" + baseName;
 #else
-            auto ts = appDir.filePath(component) + QDir::separator() + baseName;
+            auto ts = appDir.filePath(component) + "/" + baseName;
 #endif
             if (translator->load(ts)) {
                 qDebug() << "translation loaded: " << translator->filePath();
