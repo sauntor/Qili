@@ -43,7 +43,7 @@ public slots:
     void setReversed(bool reversed);
 
 private:
-    int                     mMaxLines{2};
+    int                     mMaxLines{100};
     bool                    mReversed{true};
     Ui::QiliSubtitleLogger *ui;
 };
