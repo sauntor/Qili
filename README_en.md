@@ -122,17 +122,6 @@ So, you may need to install some extra components provided by your Linux vendor.
     cpack --config CPackConfig.cmake -G DEB -V
     ```
 
-### Sponsor
-> You sponsor the author by the `Thanks` menu in `Qill`, or pay via:
-
-- Alipay<br/>
-
-![Alipay](App/images/alipay.png)
-
-- Wechat Pay<br/>
-
-![Wechat Pay](App/images/wechat.png)
-
 #### Thanks to
 1. https://github.com/SocialSisterYi/bilibili-API-collect
 2. https://www.qt.io/

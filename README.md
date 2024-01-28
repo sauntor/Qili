@@ -121,17 +121,6 @@ Qili 是一款免费且开源的B站直播弹幕语音播报软件，主要适�
     cpack --config CPackConfig.cmake -G DEB -V
     ```
 
-### 赞助
-> 自愿赞助作者工作的，可通过应用内的 `鸣谢` 或下面的二维码捐助
-
-- 支付宝<br/>
-
-![支付宝](App/images/alipay.png)
-
-- 微信支付<br/>
-
-![微信支付](App/images/wechat.png)
-
 ### 鸣谢
 > 本项目使用或参考了以下项目
 1. https://github.com/SocialSisterYi/bilibili-API-collect

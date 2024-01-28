@@ -198,7 +198,7 @@
     <message>
         <location filename="QiliThanksDialog.ui" line="+14"/>
         <location line="+25"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliThanksDialog.h" line="+202"/>
+        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliThanksDialog.h" line="+100"/>
         <location line="+1"/>
         <source>About Qili</source>
         <translation>关于 Qili</translation>
@@ -225,22 +225,16 @@
         <translation>适然 &lt;sauntor@live.com&gt; （作者）</translation>
     </message>
     <message>
-        <location line="+45"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliThanksDialog.h" line="+1"/>
         <source>Sponsor</source>
-        <translation>赞助</translation>
+        <translation type="vanished">赞助</translation>
     </message>
     <message>
-        <location line="+68"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliThanksDialog.h" line="+2"/>
         <source>Alipay</source>
-        <translation>支付宝</translation>
+        <translation type="vanished">支付宝</translation>
     </message>
     <message>
-        <location line="+49"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliThanksDialog.h" line="+2"/>
         <source>Wechat</source>
-        <translation>微信</translation>
+        <translation type="vanished">微信</translation>
     </message>
 </context>
 <context>

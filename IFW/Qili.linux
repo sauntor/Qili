@@ -27,7 +27,7 @@ done
 
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH:0:$(( ${#LD_LIBRARY_PATH} -1 ))}"
 
-if [ $app_all_in_one == "ON" ]
+if [ $app_all_in_one == "ON" ]; then
     export QT_PLUGIN_PATH="$app_dir/plugins"
 fi
 
