@@ -55,6 +55,7 @@ const bool Released = QILI_RELEASE_BUILD;
     };
 
     namespace SettingKeys {
+        constexpr const char * const ColorMode = "color_mode";
         constexpr const char * const Cookies = "cookies";
         constexpr const char * const KeepUser = "keep_user";
         constexpr const char * const KeepRoom = "keep_room";

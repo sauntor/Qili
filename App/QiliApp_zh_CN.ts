@@ -5,63 +5,52 @@
     <name>QiliLauncher</name>
     <message>
         <location filename="QiliLogin.ui" line="+266"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliLogin.h" line="+263"/>
         <source>Qili</source>
         <translation>Qili</translation>
     </message>
     <message>
         <location line="-204"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliLogin.h" line="-12"/>
         <source>You can find it on the broadcasting page</source>
         <translation>你可以在开播页面找到</translation>
     </message>
     <message>
         <location line="+13"/>
         <location line="+61"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliLogin.h" line="+3"/>
-        <location line="+4"/>
         <source>If you start as anonymous, visitor&apos;s name in the room will not be shadowed</source>
         <translation>若匿名登录，你将无法看到完整的房间访客姓名</translation>
     </message>
     <message>
         <location line="-58"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliLogin.h" line="-2"/>
         <source>You can start withou scanning, just as anonymous</source>
         <translation>你可以不登录，而用匿名开始</translation>
     </message>
     <message>
         <location line="+61"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliLogin.h" line="+4"/>
         <source>As Anonymous</source>
         <translation>匿名登录</translation>
     </message>
     <message>
         <location line="+26"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliLogin.h" line="+1"/>
         <source>Remember Me</source>
         <translation>记住我</translation>
     </message>
     <message>
         <location line="+69"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliLogin.h" line="+1"/>
         <source>Start</source>
         <translation>开始</translation>
     </message>
     <message>
         <location line="+72"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliLogin.h" line="+3"/>
         <source>Click to refresh</source>
         <translation>点击刷新</translation>
     </message>
     <message>
         <location line="+65"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliLogin.h" line="+5"/>
         <source>Please enter the number</source>
         <translation>请输入房间号</translation>
     </message>
     <message>
         <location line="-6"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliLogin.h" line="-2"/>
         <source>ROOM</source>
         <translation>房间号</translation>
     </message>
@@ -82,80 +71,66 @@
     <message>
         <location filename="QiliSettingsDialog.ui" line="+20"/>
         <location line="+28"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliSettingsDialog.h" line="+296"/>
-        <location line="+1"/>
         <source>Qili Settings</source>
         <translation>Qili配置</translation>
     </message>
     <message>
         <location line="+32"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliSettingsDialog.h" line="+7"/>
         <source>Basic</source>
         <translation>基础</translation>
     </message>
     <message>
         <location line="+6"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliSettingsDialog.h" line="-6"/>
         <source>Remember Room</source>
         <translation>记住房间</translation>
     </message>
     <message>
         <location line="+62"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliSettingsDialog.h" line="+3"/>
         <source>Remember User</source>
         <translation>记住用户</translation>
     </message>
     <message>
         <location line="+10"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliSettingsDialog.h" line="+1"/>
         <source>Reverse Logs</source>
         <translation>逆时展示弹幕</translation>
     </message>
     <message>
         <location line="+27"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliSettingsDialog.h" line="+10"/>
         <source>Voices</source>
         <translation>语音</translation>
     </message>
     <message>
         <location line="+6"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliSettingsDialog.h" line="-7"/>
         <source>Language</source>
         <translation>语言</translation>
     </message>
     <message>
         <location line="+13"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliSettingsDialog.h" line="+1"/>
         <source>Voice</source>
         <translation>音色</translation>
     </message>
     <message>
         <location line="+13"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliSettingsDialog.h" line="+1"/>
         <source>Volume</source>
         <translation>音量</translation>
     </message>
     <message>
         <location line="+33"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliSettingsDialog.h" line="+1"/>
         <source>Pitch</source>
         <translation>语速</translation>
     </message>
     <message>
         <location line="+42"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliSettingsDialog.h" line="+1"/>
         <source>This is the text to speech</source>
         <translation>这里是测试发音文字</translation>
     </message>
     <message>
         <location line="+7"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliSettingsDialog.h" line="+1"/>
         <source>Test</source>
         <translation>测试</translation>
     </message>
     <message>
         <location line="+36"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliSettingsDialog.h" line="+1"/>
         <source>Apply</source>
         <translation>应用</translation>
     </message>
@@ -187,8 +162,6 @@
     <message>
         <location filename="QiliSubtitleLogger.ui" line="+14"/>
         <location line="+25"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliSubtitleLogger.h" line="+91"/>
-        <location line="+1"/>
         <source>Subtitle Logs</source>
         <translation>弹幕记录</translation>
     </message>
@@ -198,28 +171,23 @@
     <message>
         <location filename="QiliThanksDialog.ui" line="+14"/>
         <location line="+25"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliThanksDialog.h" line="+100"/>
-        <location line="+1"/>
         <source>About Qili</source>
         <translation>关于 Qili</translation>
     </message>
     <message>
         <location line="+10"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliThanksDialog.h" line="+1"/>
         <source>An open source and free subtitle spearker for live broadcasting at bilibili.com</source>
         <oldsource>A subtitle spearker for live broadcasting at bilibili.com</oldsource>
         <translation>一个开源且免费的B站直播弹幕播报工具</translation>
     </message>
     <message>
         <location line="+33"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliThanksDialog.h" line="+1"/>
         <source>Thanks</source>
         <oldsource>Thanks to:</oldsource>
         <translation>鸣谢</translation>
     </message>
     <message>
         <location line="+10"/>
-        <location filename="../../build-Qili-SUSE_Qt_6_6_1_GCC_64bit-Debug/App/QiliApp_autogen/include/ui_QiliThanksDialog.h" line="+1"/>
         <source>Sauntor &lt;sauntor@live.com&gt; (Author)</source>
         <oldsource>Sauntor &lt;sauntor@live.com&gt;</oldsource>
         <translation>适然 &lt;sauntor@live.com&gt; （作者）</translation>

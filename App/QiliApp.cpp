@@ -80,7 +80,18 @@ int QiliApp(QApplication &app)
         }
     }
 
-    QFile theme(":/themes/light.css");
+    auto palette = app.palette();
+    auto themeName = "light";
+    auto color = palette.color(QPalette::Window);
+    // if the avg of float rgb value is lesss then threshold
+    qreal threshold = 0.6;
+    qreal factor = color.redF() + color.greenF() + color.blueF();
+    // then, let's treat it as in dark mode
+    if (factor / 3 < threshold) {
+        themeName = "dark";
+    }
+
+    QFile theme(QString(":/themes/%1.css").arg(themeName));
     if (theme.open(QFile::ReadOnly)) {
         auto styles = theme.readAll();
         app.setStyleSheet(styles);

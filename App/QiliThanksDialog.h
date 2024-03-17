@@ -17,7 +17,7 @@
 #ifndef QILITHANKSDIALOG_H
 #define QILITHANKSDIALOG_H
 
-#include "QiliDialog.h"
+#include "QiliWidget.h"
 
 #include <QDialog>
 

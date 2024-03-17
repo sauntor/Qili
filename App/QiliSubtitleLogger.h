@@ -18,7 +18,7 @@
 #define QILISUBTITLELOGGER_H
 
 #include "QiliAppGlobal.h"
-#include "QiliDialog.h"
+#include "QiliWidget.h"
 
 #include <QDialog>
 

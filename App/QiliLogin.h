@@ -19,7 +19,7 @@
 
 #include "QiliAppGlobal.h"
 #include "QiliHttp.h"
-#include "QiliDialog.h"
+#include "QiliWidget.h"
 
 #include <QDialog>
 

@@ -32,6 +32,11 @@ QiliSettings::~QiliSettings()
     delete mSettings;
 }
 
+QiliSettings::ColorMode QiliSettings::colorMode() const
+{
+    return mSettings->value(SettingKeys::ColorMode, QiliSettings::Auto).value<QiliSettings::ColorMode>();
+}
+
 bool QiliSettings::keepUser()
 {
     return mSettings->value(SettingKeys::KeepUser, true).toBool();
@@ -81,6 +86,11 @@ bool QiliSettings::reverseLogs() const
 QLocale QiliSettings::toStorable(const QLocale &locale)
 {
     return QLocale(locale.language(), locale.script(), QLocale::AnyCountry);
+}
+
+void QiliSettings::setColorMode(ColorMode value)
+{
+    mSettings->setValue(SettingKeys::ColorMode, value);
 }
 
 void QiliSettings::setKeepUser(bool value)

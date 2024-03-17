@@ -23,8 +23,7 @@ set(WIDGETS_RC_FILES QiliWidgets.qrc)
 set(WIDGETS_SRC_FILES
     WidgetsGlobal.h
 
-    QiliDialog.h
-    QiliDialog.cpp
+    QiliWidget.h
 
     QiliTextField.h
     QiliTextField.cpp

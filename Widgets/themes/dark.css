@@ -14,9 +14,15 @@
    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-QDialog {
+QWidget {
+    color: #c8c8c8;
+}
+
+QDialog, QWindow {
+    background: #383838;
     border-width: 1px;
     border-style: solid;
+    border-color: #383838;
     border-radius: 5px;
 }
 
@@ -92,14 +98,13 @@ QRadioButton[qili-btn="radio"]::indicator:checked {
     image: url(":/images/save.svg");
 }
 QWidget[qili-widget="text-field"] {
-/*    border: 5px solid #E3E5E7;*/
-    border: 5px solid red;
+    border: 5px solid #E3E5E7;
     border-radius: 4px;
 }
 
 
 QWidget[qili-widget="text-field"] > QLabel {
-    background: #F6F7F8;
+    background: #505050;
     border: 1px solid #E3E5E7;
     border-right: 1px solid #E3E5E7;
     border-radius: 4px;
@@ -108,7 +113,6 @@ QWidget[qili-widget="text-field"] > QLabel {
     font-size: 14px;
     font-weight: bold;
     line-height: 16px;
-    color: #18191C;
     padding: 0px;
 }
 

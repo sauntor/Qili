@@ -28,10 +28,14 @@ public:
     explicit QiliSettings(QObject *parent = nullptr);
     ~QiliSettings();
 
-    bool    keepUser();
-    bool    keepRoom();
-    int     room();
-    QByteArray cookies();
+    enum ColorMode { Auto, Light, Dark };
+    Q_ENUM(ColorMode);
+
+    ColorMode   colorMode() const;
+    bool        keepUser();
+    bool        keepRoom();
+    int         room();
+    QByteArray  cookies();
 
     QLocale speakerLocale() const;
     QString speakerVoice() const;
@@ -43,6 +47,7 @@ public:
     static QLocale toStorable(const QLocale &locale);
 
 public slots:
+    void setColorMode(ColorMode value);
     void setKeepUser(bool value);
     void setKeepRoom(bool value);
     void setReverseLogs(bool value) const;

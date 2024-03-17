@@ -10,5 +10,6 @@
         <file>images/help.svg</file>
         <file>images/qili.png</file>
         <file>themes/light.css</file>
+        <file>themes/dark.css</file>
     </qresource>
 </RCC>

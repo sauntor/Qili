@@ -128,45 +128,7 @@ QDateTime QiliHttp::expires()
     return QDateTime::fromMSecsSinceEpoch(-1);
 }
 
-// QSharedPointer<QNetworkReply> QiliHttp::bapi(const QString &url, const QByteArray &data, int timeout)
-// {
-//     QString md5 = QCryptographicHash::hash(data, QCryptographicHash::Md5).toHex().toLower();
-//     QString accessKeyId= Qili::ACC_KEY_ID;
-//     QString accessKeySecret = Qili::ACC_KEY_SECRET;
-//     QString nonce = QUuid::createUuid().toString();
-//     qint64 timestamp = QDateTime::currentSecsSinceEpoch();
-//     QString sign;
-//     sign += "x-bili-accesskeyid:" + accessKeyId + "\n";
-//     sign += "x-bili-content-md5:" + md5 + "\n";
-//     sign += "x-bili-signature-method:HMAC-SHA256\n";
-//     sign += "x-bili-signature-nonce:" + nonce;
-//     sign += "\nx-bili-signature-version:1.0\n";
-//     sign += QString("x-bili-timestamp:%1").arg(timestamp);
-//     QString signature = QMessageAuthenticationCode::hash(
-//                             sign.toUtf8(), accessKeySecret.toUtf8(), QCryptographicHash::Sha256).toHex().toLower();
-
-//     QNetworkRequest request = newRequest(url, {}, timeout);
-
-//     request.setRawHeader("x-bili-accesskeyid", accessKeyId.toLocal8Bit());
-//     request.setRawHeader("x-bili-content-md5", md5.toLocal8Bit());
-//     request.setRawHeader("x-bili-signature-method", "HMAC-SHA256");
-//     request.setRawHeader("x-bili-signature-nonce", nonce.toLocal8Bit());
-//     request.setRawHeader("x-bili-signature-version", "1.0");
-//     request.setRawHeader("x-bili-timestamp", QString("%1").arg(timestamp).toLocal8Bit());
-//     request.setRawHeader("Authorization", signature.toLocal8Bit());
-//     request.setRawHeader("Accept", "application/json");
-//     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-
-//     QNetworkReply *reply = networkAccessManager->post(request, data);
-//     QEventLoop replyWaiter;
-//     QObject::connect(reply, &QNetworkReply::finished, &replyWaiter, &QEventLoop::quit);
-//     QObject::connect(reply, &QNetworkReply::errorOccurred, &replyWaiter, &QEventLoop::quit);
-//     replyWaiter.exec(QEventLoop::ExcludeUserInputEvents);
-
-//     return HttpReply(reply, &QNetworkReply::deleteLater);
-// }
-
-QSharedPointer<QNetworkReply> QiliHttp::get(const QString &url, Parameters parameters, int timeout)
+HttpReply QiliHttp::get(const QString &url, Parameters parameters, int timeout)
 {
     QNetworkReply *reply = getAsync(url, parameters, timeout);
     QEventLoop replyWaiter;
